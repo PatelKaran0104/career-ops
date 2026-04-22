@@ -76,6 +76,14 @@ function checkCv() {
   };
 }
 
+function checkStructuredResume() {
+  const structuredPath = join(projectRoot, 'data', 'resume.json');
+  if (existsSync(structuredPath)) {
+    return { pass: true, label: 'Structured resume source found (data/resume.json)' };
+  }
+  return { pass: true, label: 'Structured resume source not configured (optional)' };
+}
+
 function checkProfile() {
   if (existsSync(join(projectRoot, 'config', 'profile.yml'))) {
     return { pass: true, label: 'config/profile.yml found' };
@@ -158,6 +166,7 @@ async function main() {
     checkDependencies(),
     await checkPlaywright(),
     checkCv(),
+    checkStructuredResume(),
     checkProfile(),
     checkPortals(),
     checkFonts(),

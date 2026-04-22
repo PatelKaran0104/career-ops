@@ -81,6 +81,25 @@ if (existsSync(digestPath)) {
   }
 }
 
+// 5. Check optional structured resume source
+const structuredResumePath = join(projectRoot, 'data', 'resume.json');
+if (existsSync(structuredResumePath)) {
+  try {
+    const structuredResume = JSON.parse(readFileSync(structuredResumePath, 'utf-8'));
+    if (!structuredResume.personalDetails?.fullName) {
+      warnings.push('data/resume.json exists but personalDetails.fullName is missing.');
+    }
+    if (!structuredResume.content?.work?.entries?.length) {
+      warnings.push('data/resume.json exists but work.entries is empty.');
+    }
+    if (!structuredResume.content?.skill?.entries?.length) {
+      warnings.push('data/resume.json exists but skill.entries is empty.');
+    }
+  } catch (error) {
+    errors.push(`data/resume.json is not valid JSON: ${error.message}`);
+  }
+}
+
 // Output results
 console.log('\n=== career-ops sync check ===\n');
 

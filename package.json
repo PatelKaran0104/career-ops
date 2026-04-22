@@ -15,7 +15,10 @@
     "rollback": "node update-system.mjs rollback",
     "liveness": "node check-liveness.mjs",
     "scan": "node scan.mjs",
-    "gemini:eval": "node gemini-eval.mjs"
+    "gemini:eval": "node gemini-eval.mjs",
+    "resume:import": "node import-resume-json.mjs",
+    "resume:server": "node resume-service.mjs",
+    "resume:bundle": "node generate-structured-application.mjs"
   },
   "keywords": [
     "ai",
@@ -34,6 +37,7 @@
   "dependencies": {
     "@google/generative-ai": "^0.21.0",
     "dotenv": "^16.4.5",
+    "express": "^5.2.1",
     "js-yaml": "^4.1.1",
     "playwright": "^1.58.1"
   }

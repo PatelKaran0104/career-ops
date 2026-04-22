@@ -1,5 +1,15 @@
 # Modo: pdf — Generación de PDF ATS-Optimizado
 
+## Structured Resume Bridge
+
+Si existe `data/resume.json`, puedes usar el flujo estructurado para integrarlo con el pipeline principal:
+
+1. Genera un `request.json` con `company`, `role`, `patch` y opcionalmente `coverLetter` y `tracker`
+2. Ejecuta `npm run resume:bundle -- request.json`
+3. Usa el manifest JSON y el TSV opcional para seguir con `merge-tracker.mjs`
+
+Este puente reutiliza el motor patch-based sin crear lógica paralela al tracker principal.
+
 ## Pipeline completo
 
 1. Lee `cv.md` como fuentes de verdad

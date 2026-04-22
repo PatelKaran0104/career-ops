@@ -1,8 +1,17 @@
 # Personal data (user fills these)
 cv.md
+article-digest.md
 data/applications.md
 data/pipeline.md
 data/scan-history.tsv
+data/resume.json
+data/shortlist-*.md
+data/application-materials/
+data/cover-letters/
+data/resume-variants/
+data/follow-ups.md
+interview-prep/story-bank.md
+interview-prep/*.md
 reports/*.md
 !reports/.gitkeep
 output/*
@@ -28,6 +37,8 @@ modes/_profile.md
 
 # Generated
 .resolved-prompt-*
+tmp-structured-request*.json
+structured-request*.json
 node_modules/
 bun.lock
 
